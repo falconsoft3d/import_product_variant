@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        
+        <record id="form_wizard_import_product_variant" model="ir.ui.view">
+            <field name="name">form.wizard.import.product.variant.form</field>
+            <field name="model">wizard.import.product.variant</field>
+            <field name="arch" type="xml">
+                <form string="Importar Productos con Variantes">
+                    <group>
+                        <group>
+                            
+                            <field name="file_data" filename="file_name" widget="binary" required="1" class="oe_inline"/>
+                        </group>
+                        <field name="file_name" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button string="Importar" name="import_button" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_import_product_variant" model="ir.actions.act_window">
+            <field name="name">Importar Productos con Variantes</field>
+            <field name="res_model">wizard.import.product.variant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    
+        <menuitem action="action_wizard_import_product_variant" id="product_variant_menu_import" 
+            parent="stock.menu_stock_inventory_control" sequence="5" name="Importar Productos con Variantes"/>
+
+    </odoo>
